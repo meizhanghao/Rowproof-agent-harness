@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "task_id": "orders-cleaning-demo",
+  "profile": "orders.v1",
+  "rules": {
+    "amount_min": "0",
+    "amount_max": "1000000000",
+    "decimal_places": 2,
+    "rounding": "ROUND_HALF_UP",
+    "duplicate_policy": "first_valid",
+    "date_formats": ["%Y-%m-%d", "%Y/%m/%d"]
+  },
+  "limits": {
+    "max_input_rows": 10000,
+    "max_input_bytes": 2000000,
+    "max_output_bytes": 8000000,
+    "max_attempts": 3,
+    "execution_timeout_seconds": 10,
+    "max_log_bytes": 64000
+  }
+}

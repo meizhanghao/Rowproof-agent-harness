@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-24",
+  "python": "3.10.8",
+  "platform": "Windows",
+  "dependencies": {
+    "pydantic": "2.14.1",
+    "ruff": "0.17.2",
+    "build": "1.6.1",
+    "setuptools": "84.2.1",
+    "wheel": "0.48.0"
+  },
+  "unit_tests": {
+    "total": 29,
+    "passed": 28,
+    "skipped": 1,
+    "skip_reason": "Docker integration opt-in; Docker CLI absent"
+  },
+  "checks": {
+    "ruff": "passed",
+    "ruff_format": "passed",
+    "pip_check": "passed",
+    "build_wheel_sdist": "passed",
+    "wheel_installed_demo": "passed"
+  },
+  "demo": {
+    "run_id": "6a10388710b0447e8d206f88131be814",
+    "status": "passed",
+    "attempts": 2,
+    "elapsed_seconds": 0.125,
+    "backend": "fixture:broken-then-fixed",
+    "executor": "process",
+    "last_feedback": null
+  },
+  "scripted_experiment": {
+    "experiment_type": "scripted_fixture_control_flow",
+    "limitations": "One seeded data-loss bug; no real LLM calls; not a model-quality estimate.",
+    "repetitions_per_policy": 3,
+    "policies": [
+      {
+        "policy": "exit-code-only",
+        "runs": 3,
+        "reported_successes": 3,
+        "valid_artifacts": 0,
+        "false_successes": 3,
+        "mean_attempts": 1.0
+      },
+      {
+        "policy": "verify-only",
+        "runs": 3,
+        "reported_successes": 0,
+        "valid_artifacts": 0,
+        "false_successes": 0,
+        "mean_attempts": 1.0
+      },
+      {
+        "policy": "verify-and-repair",
+        "runs": 3,
+        "reported_successes": 3,
+        "valid_artifacts": 3,
+        "false_successes": 0,
+        "mean_attempts": 2.0
+      }
+    ]
+  },
+  "not_validated": [
+    "real Docker execution",
+    "real Ollama generation",
+    "remote GitHub Actions",
+    "production use"
+  ]
+}

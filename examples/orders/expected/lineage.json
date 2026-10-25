@@ -1,0 +1,14 @@
+[
+  {"row_id": "r000001", "action": "keep", "reason": "accepted"},
+  {"row_id": "r000002", "action": "keep", "reason": "accepted"},
+  {"row_id": "r000003", "action": "reject", "reason": "duplicate_order_id"},
+  {"row_id": "r000004", "action": "reject", "reason": "invalid_amount"},
+  {"row_id": "r000005", "action": "keep", "reason": "accepted"},
+  {"row_id": "r000006", "action": "reject", "reason": "missing_order_id"},
+  {"row_id": "r000007", "action": "reject", "reason": "missing_customer"},
+  {"row_id": "r000008", "action": "reject", "reason": "invalid_amount"},
+  {"row_id": "r000009", "action": "reject", "reason": "invalid_date"},
+  {"row_id": "r000010", "action": "keep", "reason": "accepted"},
+  {"row_id": "r000011", "action": "keep", "reason": "accepted"},
+  {"row_id": "r000012", "action": "keep", "reason": "accepted"}
+]

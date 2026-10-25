@@ -1,0 +1,152 @@
+{
+  "$defs": {
+    "Limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_input_rows": {
+          "default": 10000,
+          "maximum": 100000,
+          "minimum": 1,
+          "title": "Max Input Rows",
+          "type": "integer"
+        },
+        "max_input_bytes": {
+          "default": 2000000,
+          "maximum": 20000000,
+          "minimum": 1,
+          "title": "Max Input Bytes",
+          "type": "integer"
+        },
+        "max_output_bytes": {
+          "default": 8000000,
+          "maximum": 50000000,
+          "minimum": 1,
+          "title": "Max Output Bytes",
+          "type": "integer"
+        },
+        "max_attempts": {
+          "default": 3,
+          "maximum": 5,
+          "minimum": 1,
+          "title": "Max Attempts",
+          "type": "integer"
+        },
+        "execution_timeout_seconds": {
+          "default": 10.0,
+          "maximum": 120,
+          "minimum": 0.1,
+          "title": "Execution Timeout Seconds",
+          "type": "number"
+        },
+        "max_log_bytes": {
+          "default": 64000,
+          "maximum": 1000000,
+          "minimum": 1024,
+          "title": "Max Log Bytes",
+          "type": "integer"
+        }
+      },
+      "title": "Limits",
+      "type": "object"
+    },
+    "OrderRules": {
+      "additionalProperties": false,
+      "properties": {
+        "amount_min": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "0",
+          "title": "Amount Min"
+        },
+        "amount_max": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "default": "1000000000",
+          "title": "Amount Max"
+        },
+        "decimal_places": {
+          "const": 2,
+          "default": 2,
+          "title": "Decimal Places",
+          "type": "integer"
+        },
+        "rounding": {
+          "const": "ROUND_HALF_UP",
+          "default": "ROUND_HALF_UP",
+          "title": "Rounding",
+          "type": "string"
+        },
+        "duplicate_policy": {
+          "const": "first_valid",
+          "default": "first_valid",
+          "title": "Duplicate Policy",
+          "type": "string"
+        },
+        "date_formats": {
+          "default": [
+            "%Y-%m-%d",
+            "%Y/%m/%d"
+          ],
+          "items": {
+            "enum": [
+              "%Y-%m-%d",
+              "%Y/%m/%d"
+            ],
+            "type": "string"
+          },
+          "maxItems": 2,
+          "minItems": 1,
+          "title": "Date Formats",
+          "type": "array"
+        }
+      },
+      "title": "OrderRules",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "task_id": {
+      "maxLength": 80,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "title": "Task Id",
+      "type": "string"
+    },
+    "profile": {
+      "const": "orders.v1",
+      "default": "orders.v1",
+      "title": "Profile",
+      "type": "string"
+    },
+    "rules": {
+      "$ref": "#/$defs/OrderRules"
+    },
+    "limits": {
+      "$ref": "#/$defs/Limits"
+    }
+  },
+  "required": [
+    "task_id"
+  ],
+  "title": "TaskContract",
+  "type": "object"
+}
